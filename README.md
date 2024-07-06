@@ -1,86 +1,112 @@
-# Proyek Akhir Pemrograman Berbasis Objek 1
+# Proyek Rumah Sakit Pertamina Tanjung
 
-Proyek ini adalah contoh sederhana aplikasi pengolahan data mahasiswa menggunakan Java sebagai tugas akhir dari mata kuliah pemrograman berbasis objek 1.
+Proyek ini adalah sebuah aplikasi pengelolaan data layanan di Rumah Sakit Pertamina Tanjung yang mencakup berbagai layanan seperti rawat jalan, rawat inap, penunjang medis, fasilitas umum, medical check-up, dan promosi kesehatan.
 
 ## Deskripsi
 
-Aplikasi ini menerima input berupa nama dan NPM mahasiswa, dan memberikan output berupa informasi detail dari NPM tersebut seperti tahun masuk, fakultas, program studi, dan nomor registrasi.
-
-Aplikasi ini mengimplementasikan beberapa konsep penting dalam pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Inheritance, Overloading, Overriding, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
+Aplikasi ini dikembangkan untuk memenuhi kebutuhan pengelolaan data di Rumah Sakit Pertamina Tanjung dengan menggunakan konsep-konsep pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Inheritance, Overloading, Overriding, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
 
 ## Penjelasan Kode
 
 Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
 
-1. **Class** adalah template atau blueprint dari object. Pada kode ini, Mahasiswa, MahasiswaDetail, dan MahasiswaBeraksi adalah contoh dari class.
+1. **Class** adalah template atau blueprint dari object. Pada kode ini, Layanan, RawatJalan, RawatInap, PenunjangMedis, FasilitasUmum, MedicalCheckUp, dan PromosiKesehatan adalah contoh dari class.
     ```java
-    public class Mahasiswa {
+    public class Layanan {
         ...
     }
 
-    public class MahasiswaDetail extends Mahasiswa {
+    public class RawatJalan extends Layanan {
         ...
     }
 
-    public class MahasiswaBeraksi {
+    public class RawatInap extends Layanan {
+        ...
+    }
+
+    public class PenunjangMedis extends Layanan {
+        ...
+    }
+
+    public class FasilitasUmum extends Layanan {
+        ...
+    }
+
+    public class MedicalCheckUp extends Layanan {
+        ...
+    }
+
+    public class PromosiKesehatan extends Layanan {
         ...
     }
     ```
-2. **Object** adalah instance dari class. Pada kode ini, `mhs[i] = new MahasiswaDetail(nama, npm);` adalah contoh pembuatan object.
+
+2. **Object** adalah instance dari class. Pada kode ini, `RawatJalan rawatJalan = new RawatJalan();` adalah contoh pembuatan object.
     ```java
-    mhs[i] = new MahasiswaDetail(nama, npm);
+    RawatJalan rawatJalan = new RawatJalan();
     ```
-3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `nama` dan `npm` adalah contoh atribut.
+
+3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `namaLayanan` dan `deskripsi` adalah contoh atribut.
     ```java
-    String nama;
-    String npm;
+    private String namaLayanan;
+    private String deskripsi;
     ```
-4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class Mahasiswa dan MahasiswaDetail.
+
+4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class Layanan dan kelas turunannya.
     ```java
-    public Mahasiswa(String nama, String npm) {
-        this.nama = nama;
-        this.npm = npm;
+    public Layanan(String namaLayanan, String deskripsi) {
+        this.namaLayanan = namaLayanan;
+        this.deskripsi = deskripsi;
+    }
+    
+    public RawatJalan(String namaLayanan, String deskripsi) {
+        super(namaLayanan, deskripsi);
+    }
+    ```
+
+5. **Mutator** atau setter digunakan untuk mengubah nilai dari suatu atribut. Pada kode ini, `setNamaLayanan` dan `setDeskripsi` adalah contoh method mutator.
+    ```java
+    public void setNamaLayanan(String namaLayanan) {
+        this.namaLayanan = namaLayanan;
     }
 
-    public MahasiswaDetail(String nama, String npm) {
-        super(nama, npm);
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
     }
     ```
-5. **Mutator** atau setter digunakan untuk mengubah nilai dari suatu atribut. Pada kode ini, `setNama` dan `setNpm` adalah contoh method mutator.
+
+6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNamaLayanan` dan `getDeskripsi` adalah contoh method accessor.
     ```java
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getNamaLayanan() {
+        return namaLayanan;
     }
 
-    public void setNpm(String npm) {
-        this.npm = npm;
+    public String getDeskripsi() {
+        return deskripsi;
     }
     ```
-6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNama`, `getNpm`, `getTahunMasuk`, `getFakultas`, `getProdi`, dan `getNoRegistrasi` adalah contoh method accessor.
+
+7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `namaLayanan` dan `deskripsi` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
     ```java
-    public String getNama() {
-        return nama;
+    private String namaLayanan;
+    private String deskripsi;
+    ```
+
+8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi properti dan method dari class lain. Pada kode ini, RawatJalan, RawatInap, PenunjangMedis, FasilitasUmum, MedicalCheckUp, dan PromosiKesehatan mewarisi Layanan dengan sintaks `extends`.
+    ```java
+    public class RawatJalan extends Layanan {
+        ...
     }
 
-    public String getNpm() {
-        return npm;
-    }
-    ```
-7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `nama` dan `npm` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
-    ```java
-    private String nama;
-    private String npm;
-    ```
-8. **Inheritance** adalah konsep di mana sebuah class bisa mewarisi property dan method dari class lain. Pada kode ini, MahasiswaDetail mewarisi Mahasiswa dengan sintaks `extends`.
-    ```java
-    public class MahasiswaDetail extends Mahasiswa {
+    public class RawatInap extends Layanan {
         ...
     }
     ```
-9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi, polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di Mahasiswa merupakan overloading method `displayInfo` dan `displayInfo` di MahasiswaDetail merupakan override dari method `displayInfo` di Mahasiswa.
+
+9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Ini memungkinkan metode-metode dengan nama yang sama untuk berperilaku berbeda tergantung pada tipe objek yang mereka manipulasi. Polymorphism bisa berbentuk Overloading ataupun Overriding. Pada kode ini, method `displayInfo(String)` di Layanan merupakan overloading method `displayInfo` dan `displayInfo` di RawatJalan merupakan override dari method `displayInfo` di Layanan.
     ```java
-    public String displayInfo(String kelas) {
-        return displayInfo() + "\nKelas: " + kelas;
+    public String displayInfo(String additionalInfo) {
+        return displayInfo() + "\nAdditional Info: " + additionalInfo;
     }
 
     @Override
@@ -88,49 +114,54 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
         ...
     }
     ```
-10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dalam method `getFakultas` dan seleksi `switch` dalam method `getProdi`.
+
+10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi if else dalam method `getJenisLayanan` dan seleksi switch dalam method `getKategoriLayanan`.
     ```java
-    public String getFakultas() {
-        if(getNpm().substring(2, 4).equals("10")){
-            return "Teknologi Informasi";
+    public String getJenisLayanan() {
+        if (this instanceof RawatJalan) {
+            return "Rawat Jalan";
+        } else if (this instanceof RawatInap) {
+            return "Rawat Inap";
         } else {
-            return "Fakultas lain";
+            return "Layanan Lain";
         }
-
-        //return getNpm().substring(2, 4).equals("10") ? "Teknologi Informasi" : "Fakultas lain";
     }
 
-    public String getProdi() {
-        switch(getNpm().substring(4, 6)) {
-            case "01":
-                return "Teknik Informatika";
-            case "02":
-                return "Sistem Informasi";
+    public String getKategoriLayanan() {
+        switch (namaLayanan) {
+            case "Medical Check-Up":
+                return "Kesehatan";
+            case "Fasilitas Umum":
+                return "Umum";
             default:
-                return "Prodi lain";
+                return "Lain-lain";
         }
     }
     ```
-11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk meminta input dan menampilkan data.
+
+11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop for untuk menampilkan data layanan.
     ```java
-    for (int i = 0; i < mahasiswas.length; i++) {
-        ...
+    for (Layanan layanan : layananList) {
+        System.out.println(layanan.displayInfo());
     }
     ```
-12. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class `Scanner` untuk menerima input dan method `System.out.println` untuk menampilkan output.
+
+12. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class Scanner untuk menerima input dan method `System.out.println` untuk menampilkan output.
     ```java
     Scanner scanner = new Scanner(System.in);
-    System.out.print("Masukkan Nama Mahasiswa ke-" + (i + 1) + ": ");
-    String nama = scanner.nextLine();
+    System.out.print("Masukkan Nama Layanan: ");
+    String namaLayanan = scanner.nextLine();
 
-    System.out.println("\nData Mahasiswa:");
-    System.out.println(mahasiswa.displayInfo());
+    System.out.println("\nData Layanan:");
+    System.out.println(layanan.displayInfo());
     ```
-13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];` adalah contoh penggunaan array.
+
+13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `Layanan[] layananList = new Layanan[5];` adalah contoh penggunaan array.
     ```java
-    MahasiswaDetail[] mahasiswas = new MahasiswaDetail[2];
+    Layanan[] layananList = new Layanan[5];
     ```
-14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` untuk menangani error.
+
+14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan try catch untuk menangani error.
     ```java
     try {
         // code that might throw an exception
@@ -139,7 +170,7 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
     }
     ```
 
-## Usulan nilai
+## Usulan Nilai
 
 | No  | Materi         |  Nilai  |
 | :-: | -------------- | :-----: |
