@@ -3,39 +3,39 @@ package RumahSakit;
 import java.util.Scanner;
 
 public class RumahSakitPertamina {
-        private Scanner input = new Scanner(System.in);
+        private Scanner scanner = new Scanner(System.in);
 
     // Atribut untuk layanan rawat jalan
     private String[] poliklinikRawatJalan = {
-        "Poliklinik Saraf", "Poliklinik Bedah Umum", "Poliklinik Bedah Mulut",
-        "Poliklinik Konservasi Gigi", "Poliklinik Kandungan", "Poliklinik Anak",
-        "Poliklinik Penyakit Dalam", "Poliklinik Ortopedi", "Poliklinik THT"
+        "Klinik Neurologi", "Klinik Bedah Umum", "Klinik Bedah Oral",
+        "Klinik Gigi dan Mulut", "Klinik Kandungan", "Klinik Anak",
+        "Klinik Penyakit Dalam", "Klinik Ortopedi", "Klinik THT"
     };
 
     // Atribut untuk layanan rawat inap
     private String[] kamarRawatInap = {
-        "Kamar Rawat VVIP", "Kamar Perawatan VVIP", "Kamar Rawat VIP",
-        "Kamar Perawatan VIP", "Kamar Rawat Kelas I", "Kamar Perawatan Kelas I",
-        "Kamar Rawat Kelas II", "Kamar Perawatan Kelas II", "Kamar Rawat Kelas III",
-        "Kamar Perawatan Kelas III", "Kamar ICU", "Perawatan ICU",
+        "Kamar VVIP", "Ruang Perawatan VVIP", "Kamar VIP",
+        "Ruang Perawatan VIP", "Kamar Kelas Satu", "Ruang Perawatan Kelas Satu",
+        "Kamar Kelas Dua", "Ruang Perawatan Kelas Dua", "Kamar Kelas Tiga",
+        "Ruang Perawatan Kelas Tiga", "Kamar ICU", "Ruang Perawatan ICU",
         "Kamar Isolasi", "Perawatan Isolasi Covid-19", "Kamar HCU",
-        "Kamar Perawatan HCU", "Penunjang Medis"
+        "Ruang Perawatan HCU", "Penunjang Medis"
     };
 
     // Atribut untuk dokter
-    private String namaDr;
-    private int jasaDr;
-    private int pilihDr;
+    private String dokterNama;
+    private int dokterJasa;
+    private int dokterPilihan;
 
     // Atribut untuk pasien
-    private String namaPasien;
-    private int umurPasien;
-    private String alamatPasien;
+    private String pasienNama;
+    private int pasienUmur;
+    private String pasienAlamat;
 
     // Atribut untuk fasilitas publik
     private String[] fasilitasPublik = {
-        "Laboratorium", "Laboratorium Reguler", "Radiologi",
-        "Penunjang Radiologi", "Fisioterapi", "Penunjang Fisioterapi",
+        "Laboratorium", "Laboratorium Standar", "Radiologi",
+        "Ruang Radiologi", "Fisioterapi", "Ruang Fisioterapi",
         "Lab PCR", "Laboratorium PCR"
     };
 
@@ -46,22 +46,22 @@ public class RumahSakitPertamina {
 
     // Mutator untuk pasien
     public void setPasien(String nama, int umur, String alamat) {
-        this.namaPasien = nama;
-        this.umurPasien = umur;
-        this.alamatPasien = alamat;
+        this.pasienNama = nama;
+        this.pasienUmur = umur;
+        this.pasienAlamat = alamat;
     }
 
     // Accessor untuk pasien
-    public String getNamaPasien() {
-        return namaPasien;
+    public String getPasienNama() {
+        return pasienNama;
     }
 
-    public int getUmurPasien() {
-        return umurPasien;
+    public int getPasienUmur() {
+        return pasienUmur;
     }
 
-    public String getAlamatPasien() {
-        return alamatPasien;
+    public String getPasienAlamat() {
+        return pasienAlamat;
     }
 
     // Metode untuk menampilkan layanan rawat jalan
@@ -84,20 +84,20 @@ public class RumahSakitPertamina {
     public void tampilkanInformasiPasien() {
         try {
             System.out.println("Masukkan nama pasien:");
-            namaPasien = input.next();
+            pasienNama = scanner.next();
             System.out.println("Masukkan umur pasien:");
-            umurPasien = input.nextInt();
+            pasienUmur = scanner.nextInt();
             System.out.println("Masukkan alamat pasien:");
-            alamatPasien = input.next();
+            pasienAlamat = scanner.next();
         } catch (Exception e) {
             System.out.println("Terjadi kesalahan input. Silakan coba lagi.");
-            input.next(); // Membersihkan buffer
+            scanner.next(); // Membersihkan buffer
         }
 
         System.out.println("Informasi Pasien:");
-        System.out.println("Nama: " + namaPasien);
-        System.out.println("Umur: " + umurPasien);
-        System.out.println("Alamat: " + alamatPasien);
+        System.out.println("Nama: " + pasienNama);
+        System.out.println("Umur: " + pasienUmur);
+        System.out.println("Alamat: " + pasienAlamat);
     }
 
     // Metode untuk menampilkan informasi dokter
@@ -109,31 +109,31 @@ public class RumahSakitPertamina {
 
         while (true) {
             try {
-                pilihDr = input.nextInt();
-                if (pilihDr == 1) {
-                    namaDr = "Dr. Ryu Hasan";
-                    jasaDr = 150000;
+                dokterPilihan = scanner.nextInt();
+                if (dokterPilihan == 1) {
+                    dokterNama = "Dr. Ryu Hasan";
+                    dokterJasa = 150000;
                     break;
-                } else if (pilihDr == 2) {
-                    namaDr = "Dr. Budi Santoso";
-                    jasaDr = 120000;
+                } else if (dokterPilihan == 2) {
+                    dokterNama = "Dr. Budi Santoso";
+                    dokterJasa = 120000;
                     break;
-                } else if (pilihDr == 3) {
-                    namaDr = "Dr. Maria";
-                    jasaDr = 200000;
+                } else if (dokterPilihan == 3) {
+                    dokterNama = "Dr. Maria";
+                    dokterJasa = 200000;
                     break;
                 } else {
                     System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
                 }
             } catch (Exception e) {
                 System.out.println("Terjadi kesalahan input. Silakan coba lagi.");
-                input.next(); // Membersihkan buffer
+                scanner.next(); // Membersihkan buffer
             }
         }
 
         System.out.println("Informasi Dokter:");
-        System.out.println("Nama: " + namaDr);
-        System.out.println("Jasa: " + jasaDr);
+        System.out.println("Nama: " + dokterNama);
+        System.out.println("Jasa: " + dokterJasa);
     }
 
     // Metode untuk menampilkan fasilitas publik
@@ -145,26 +145,25 @@ public class RumahSakitPertamina {
     }
 
     // Polymorphism Overloading untuk menampilkan informasi dokter
-    public void tampilkanInformasiDokter(int pilihDr) {
-        if (pilihDr == 1) {
-            namaDr = "Dr. Ryu Hasan";
-            jasaDr = 150000;
-        } else if (pilihDr == 2) {
-            namaDr = "Dr. Budi Santoso";
-            jasaDr = 120000;
-        } else if (pilihDr == 3) {
-            namaDr = "Dr. Maria";
-            jasaDr = 200000;
+    public void tampilkanInformasiDokter(int dokterPilihan) {
+        if (dokterPilihan == 1) {
+            dokterNama = "Dr. Ryu Hasan";
+            dokterJasa = 150000;
+        } else if (dokterPilihan == 2) {
+            dokterNama = "Dr. Budi Santoso";
+            dokterJasa = 120000;
+        } else if (dokterPilihan == 3) {
+            dokterNama = "Dr. Maria";
+            dokterJasa = 200000;
         } else {
             System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
             return;
         }
 
         System.out.println("Informasi Dokter:");
-        System.out.println("Nama: " + namaDr);
-        System.out.println("Jasa: " + jasaDr);
+        System.out.println("Nama: " + dokterNama);
+        System.out.println("Jasa: " + dokterJasa);
     }
 }
-
 
 
