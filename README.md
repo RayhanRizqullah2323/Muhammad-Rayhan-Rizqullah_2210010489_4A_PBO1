@@ -4,7 +4,7 @@ Proyek ini adalah contoh sederhana aplikasi pengelolaan data layanan Rumah Sakit
 
 ## Deskripsi
 
-Aplikasi ini menyediakan berbagai layanan rumah sakit seperti layanan rawat jalan, rawat inap, informasi dokter, informasi pasien, dan fasilitas publik. Aplikasi ini mengimplementasikan beberapa konsep penting dalam pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Inheritance, Polymorphism, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
+Aplikasi ini menyediakan berbagai layanan rumah sakit seperti layanan rawat jalan, rawat inap, informasi dokter, informasi pasien, dan fasilitas publik. Aplikasi ini mengimplementasikan beberapa konsep penting dalam pemrograman berorientasi objek (OOP) seperti Class, Object, Atribut, Method Constructor, Method Mutator, Method Accessor, Encapsulation, Polymorphism, Seleksi, Perulangan, IO Sederhana, Array, dan Error Handling.
 
 ## Penjelasan Kode
 
@@ -24,12 +24,12 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
     RumahSakitPertamina rsPertamina = new RumahSakitPertamina();
     ```
 
-3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `namaPasien`, `umurPasien`, dan `alamatPasien` adalah contoh atribut.
+3. **Atribut** adalah variabel yang ada dalam class. Pada kode ini, `pasienNama`, `pasienUmur`, dan `pasienAlamat` adalah contoh atribut.
 
     ```java
-    private String namaPasien;
-    private int umurPasien;
-    private String alamatPasien;
+    private String pasienNama;
+    private int pasienUmur;
+    private String pasienAlamat;
     ```
 
 4. **Constructor** adalah method yang pertama kali dijalankan pada saat pembuatan object. Pada kode ini, constructor ada di dalam class `RumahSakitPertamina`.
@@ -44,68 +44,66 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
 
     ```java
     public void setPasien(String nama, int umur, String alamat) {
-        this.namaPasien = nama;
-        this.umurPasien = umur;
-        this.alamatPasien = alamat;
+        this.pasienNama = nama;
+        this.pasienUmur = umur;
+        this.pasienAlamat = alamat;
     }
     ```
 
-6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getNamaPasien`, `getUmurPasien`, dan `getAlamatPasien` adalah contoh method accessor.
+6. **Accessor** atau getter digunakan untuk mengambil nilai dari suatu atribut. Pada kode ini, `getPasienNama`, `getPasienUmur`, dan `getPasienAlamat` adalah contoh method accessor.
 
     ```java
-    public String getNamaPasien() {
-        return namaPasien;
+    public String getPasienNama() {
+        return pasienNama;
     }
 
-    public int getUmurPasien() {
-        return umurPasien;
+    public int getPasienUmur() {
+        return pasienUmur;
     }
 
-    public String getAlamatPasien() {
-        return alamatPasien;
+    public String getPasienAlamat() {
+        return pasienAlamat;
     }
     ```
 
-7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `namaPasien`, `umurPasien`, dan `alamatPasien` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
+7. **Encapsulation** adalah konsep menyembunyikan data dengan membuat atribut menjadi private dan hanya bisa diakses melalui method. Pada kode ini, atribut `pasienNama`, `pasienUmur`, dan `pasienAlamat` dienkapsulasi dan hanya bisa diakses melalui method getter dan setter.
 
     ```java
-    private String namaPasien;
-    private int umurPasien;
-    private String alamatPasien;
+    private String pasienNama;
+    private int pasienUmur;
+    private String pasienAlamat;
     ```
 
-8. **Inheritance** tidak diterapkan secara eksplisit dalam kode ini karena tidak ada subclass yang dibuat dari `RumahSakitPertamina`.
-
-9. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Pada kode ini, method `tampilkanInformasiDokter` di-overload.
+8. **Polymorphism** adalah konsep di mana sebuah nama dapat digunakan untuk merujuk ke beberapa tipe atau bentuk objek berbeda. Pada kode ini, method `tampilkanInformasiDokter` di-overload.
 
     ```java
     public void tampilkanInformasiDokter() {
         ...
     }
 
-    public void tampilkanInformasiDokter(int pilihDr) {
+    public void tampilkanInformasiDokter(int dokterPilihan) {
         ...
     }
     ```
 
-10. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dan `while` dalam method `tampilkanInformasiDokter`.
+9. **Seleksi** adalah statement kontrol yang digunakan untuk membuat keputusan berdasarkan kondisi. Pada kode ini, digunakan seleksi `if else` dan `while` dalam method `tampilkanInformasiDokter`.
 
     ```java
-    if (pilihDr == 1) {
-        namaDr = "Dr. Ryu Hasan";
-        jasaDr = 150000;
-    } else if (pilihDr == 2) {
-        namaDr = "Dr. Budi Santoso";
-        jasaDr = 120000;
-    } else if (pilihDr == 3) {
-        namaDr = "Dr. Maria";
-        jasaDr = 200000;
+    if (dokterPilihan == 1) {
+        dokterNama = "Dr. Ryu Hasan";
+        dokterJasa = 150000;
+    } else if (dokterPilihan == 2) {
+        dokterNama = "Dr. Budi Santoso";
+        dokterJasa = 120000;
+    } else if (dokterPilihan == 3) {
+        dokterNama = "Dr. Maria";
+        dokterJasa = 200000;
     } else {
         System.out.println("Pilihan tidak valid. Silakan pilih lagi.");
     }
     ```
 
-11. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk menampilkan layanan rawat jalan dan rawat inap.
+10. **Perulangan** adalah statement kontrol yang digunakan untuk menjalankan blok kode berulang kali. Pada kode ini, digunakan loop `for` untuk menampilkan layanan rawat jalan dan rawat inap.
 
     ```java
     for (String poliklinik : poliklinikRawatJalan) {
@@ -113,31 +111,31 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
     }
     ```
 
-12. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class `Scanner` untuk menerima input dan method `System.out.println` untuk menampilkan output.
+11. **Input Output Sederhana** digunakan untuk menerima input dari user dan menampilkan output ke user. Pada kode ini, digunakan class `Scanner` untuk menerima input dan method `System.out.println` untuk menampilkan output.
 
     ```java
-    Scanner input = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
     System.out.println("Masukkan nama pasien:");
-    namaPasien = input.next();
+    pasienNama = scanner.next();
     ```
 
-13. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `poliklinikRawatJalan` dan `kamarRawatInap` adalah contoh penggunaan array.
+12. **Array** adalah struktur data yang digunakan untuk menyimpan beberapa nilai dalam satu variabel. Pada kode ini, `poliklinikRawatJalan` dan `kamarRawatInap` adalah contoh penggunaan array.
 
     ```java
     private String[] poliklinikRawatJalan = {
-        "Poliklinik Saraf", "Poliklinik Bedah Umum", "Poliklinik Bedah Mulut",
+        "Klinik Neurologi", "Klinik Bedah Umum", "Klinik Bedah Oral",
         ...
     };
     ```
 
-14. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` untuk menangani error.
+13. **Error Handling** digunakan untuk menangani error yang mungkin terjadi saat runtime. Pada kode ini, digunakan `try catch` untuk menangani error.
 
     ```java
     try {
-        pilihDr = input.nextInt();
+        dokterPilihan = scanner.nextInt();
     } catch (Exception e) {
         System.out.println("Terjadi kesalahan input. Silakan coba lagi.");
-        input.next(); // Membersihkan buffer
+        scanner.next(); // Membersihkan buffer
     }
     ```
 
@@ -152,13 +150,12 @@ Berikut adalah bagian kode yang relevan dengan konsep OOP yang dijelaskan:
 |  5  | Mutator        |    5    |
 |  6  | Accessor       |    5    |
 |  7  | Encapsulation  |    5    |
-|  8  | Inheritance    |    5    |
-|  9  | Polymorphism   |   10    |
-| 10  | Seleksi        |    5    |
-| 11  | Perulangan     |    5    |
-| 12  | IO Sederhana   |   10    |
-| 13  | Array          |   15    |
-| 14  | Error Handling |   15    |
+|  8  | Polymorphism   |   10    |
+|  9  | Seleksi        |    5    |
+| 10  | Perulangan     |    5    |
+| 11  | IO Sederhana   |   10    |
+| 12  | Array          |   15    |
+| 13  | Error Handling |   15    |
 |     | **TOTAL**      | **100** |
 
 ## Pembuat
